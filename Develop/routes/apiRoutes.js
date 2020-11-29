@@ -34,13 +34,15 @@ module.exports = app => {
         }
         updateNDB();
         console.log("Note deleted");
+        res.end();
     });
 
     function updateNDB() {
         fs.writeFile("db/db.json", JSON.stringify(notes), err => {
             if (err) throw err;
-            //res.send();
+            
             return true;
+
         });
 
     };
